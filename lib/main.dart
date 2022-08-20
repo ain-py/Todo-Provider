@@ -5,7 +5,12 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
-}
+} //DIO
+// factory
+//sharedPreference
+//android premisson
+//singalton
+// FOROsNiTqry1n_pacpGyo
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
