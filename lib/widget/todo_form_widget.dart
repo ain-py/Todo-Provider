@@ -15,20 +15,18 @@ class TodoFormWidget extends StatelessWidget {
   final ValueChanged<String> onChangedDescription;
   final VoidCallback onSavedTodo;
   @override
-  Widget build(BuildContext context) => Flexible(
-        child: SingleChildScrollView(
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            buildTitle(),
-            const SizedBox(
-              height: 10,
-            ),
-            buildDesciption(),
-            const SizedBox(
-              height: 10,
-            ),
-            buildButton(),
-          ]),
-        ),
+  Widget build(BuildContext context) => SingleChildScrollView(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          buildTitle(),
+          const SizedBox(
+            height: 10,
+          ),
+          buildDesciption(),
+          const SizedBox(
+            height: 10,
+          ),
+          buildButton(),
+        ]),
       );
   Widget buildTitle() {
     return TextFormField(

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/widget/todo_widget.dart';
@@ -13,23 +14,25 @@ class CompletedTaskWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<TodosProvider>(context);
     final todos = provider.todosCompleted;
-    return todos.isEmpty
-        ? const Center(
-            child: Text(
-            "No completed tasks",
-            style: TextStyle(fontSize: 20),
-          ))
-        : ListView.separated(
-            padding: const EdgeInsets.all(20),
-            physics: const BouncingScrollPhysics(),
-            itemCount: todos.length,
-            separatorBuilder: ((context, index) => Container(
-                  height: 12,
-                )),
-            itemBuilder: (context, index) {
-              final todo = todos[index];
-              return TodoWidget(todo: todo);
-            },
-          );
+    return Scaffold(
+        appBar: AppBar(title: Text("Complete tasks")),
+        body: todos.isEmpty
+            ? const Center(
+                child: Text(
+                "No completed tasks",
+                style: TextStyle(fontSize: 20),
+              ))
+            : ListView.separated(
+                padding: const EdgeInsets.all(20),
+                physics: const BouncingScrollPhysics(),
+                itemCount: todos.length,
+                separatorBuilder: ((context, index) => Container(
+                      height: 12,
+                    )),
+                itemBuilder: (context, index) {
+                  final todo = todos[index];
+                  return TodoWidget(todo: todo);
+                },
+              ));
   }
 }

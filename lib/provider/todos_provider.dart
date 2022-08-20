@@ -24,12 +24,9 @@ class TodosProvider extends ChangeNotifier {
       createdTime: DateTime.now(),
       title: 'Walk the Dog 🐕',
     ),
-    Todo(
-      createdTime: DateTime.now(),
-      title: 'Plan Jacobs birthday party 🎉🥳',
-    ),
   ];
 
+  DateTime pickedDate = DateTime.now();
   List<Todo> get todos => _todos.where((todo) => todo.isDone == false).toList();
 
   List<Todo> get todosCompleted =>
@@ -49,4 +46,10 @@ class TodosProvider extends ChangeNotifier {
     notifyListeners();
     return todo.isDone;
   }
+
+  void setDate(DateTime selTime) {
+    pickedDate = selTime;
+  }
+
+  DateTime get getDate => pickedDate;
 }
